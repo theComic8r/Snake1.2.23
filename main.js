@@ -30,10 +30,6 @@ window.onload=function() {
 function game() {
     playerX+=xVelocity;
 	playerY+=yVelocity;
-    var started = false;
-    if(!moving){
-        started = true;
-    }
 	if(playerX<0 && startScreen){
         // playerX= tileCount-1;
 		// moving=true;
@@ -53,9 +49,6 @@ function game() {
         // playerY= 0;
 		// moving=true;
 		startScreen = false;
-    }
-    if(started && moving){
-        score = 0;
     }
 	ctx.fillStyle="black";
 	ctx.fillRect(0,0,canv.width,canv.height);
@@ -137,8 +130,7 @@ function keyPush(evt) {
 			break;
         case 32:
 			if(!startScreen){
-            startScreen = true; 
-			started=true; 
+            startScreen = true;  
 			timesPlayed++;
 			score=0;
 			xVelocity=yVelocity=0;
