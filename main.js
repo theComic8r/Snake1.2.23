@@ -10,6 +10,7 @@ winVal = 25;
 record = 0;
 timesPlayed=1;
 timesWon=0;
+fps=1000/10;
 var startScreen = true;
 var moving = false;
 //disable arrow keys scrolling
@@ -24,7 +25,7 @@ window.onload=function() {
 	ctx=canv.getContext("2d");
 	document.addEventListener("keydown",keyPush);
 	startScreen = true;
-    setInterval(game,1000/10);
+    setInterval(game,fps);
 }
 //game actions, called 10x/sec
 function game() {
