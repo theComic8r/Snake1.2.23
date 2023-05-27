@@ -32,25 +32,20 @@ function game() {
     playerX+=xVelocity;
 	playerY+=yVelocity;
 	if(playerX<0 && startScreen){
-        // playerX= tileCount-1;
-		// moving=true;
 		startScreen = false;
     }
     if(playerX>tileCount-1 && startScreen) {
-        // playerX= 0;
-		// moving=true;
 		startScreen = false;
     }
     if(playerY<0 && startScreen) {
-        // playerY= tileCount-1;
-		// moving=true;
 		startScreen = false;
     }
     if(playerY>tileCount-1 && startScreen) {
-        // playerY= 0;
-		// moving=true;
 		startScreen = false;
     }
+	// if(started){
+	// 	startScreen=true;
+	// }
 	ctx.fillStyle="black";
 	ctx.fillRect(0,0,canv.width,canv.height);
 
@@ -60,6 +55,7 @@ function game() {
 		if(trail[i].x==playerX && trail[i].y==playerY && moving) {
 			tail = 5;
 			startScreen = false;
+			console.log("Hit: "+startScreen);
             moving = false;
 		}
 	}
@@ -73,7 +69,6 @@ function game() {
 		appleX=Math.floor(Math.random()*tileCount);
 		appleY=Math.floor(Math.random()*tileCount);
         score++;
-		console.log(score);
 		if(score === winVal){
 			timesWon++;
 		}
@@ -82,6 +77,8 @@ function game() {
 	ctx.fillRect(appleX*gridSize,appleY*gridSize,gridSize-2,gridSize-2);
 
     if(!startScreen){
+		console.log("Game Over: "+startScreen);
+
         ctx.clearRect(0,0,canv.width,canv.height);
         ctx.fillStyle="black";
         ctx.fillRect(0,0,canv.width,canv.height);
@@ -105,6 +102,9 @@ function game() {
 		ctx.fillText("Played: "+timesPlayed, 100, 150);
 		ctx.fillText("Won: "+timesWon, 100, 300);
 
+		xVelocity=yVelocity=0;
+		playerX=playerY=10;
+		appleX=appleY=15;
     }
 }
 function keyPush(evt) {
@@ -132,11 +132,9 @@ function keyPush(evt) {
         case 32:
 			if(!startScreen){
             startScreen = true;  
+			console.log("startScreenSpace: "+startScreen);
 			timesPlayed++;
 			score=0;
-			xVelocity=yVelocity=0;
-			playerX=playerY=10;
-			appleX=appleY=15;
 			}
             break;
 	}
