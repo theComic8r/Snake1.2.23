@@ -30,18 +30,18 @@ window.onload=function() {
 //game actions, called 10x/sec
 function game() {
     playerX+=xVelocity;
-	playerY+=yVelocity;
-	if(playerX<0 && startScreen){
-		startScreen = false;
+    playerY+=yVelocity;
+    if(playerX<-1 && startScreen){
+	startScreen = false;
     }
-    if(playerX>tileCount-1 && startScreen) {
-		startScreen = false;
+    if(playerX>tileCount+1 && startScreen) {
+	startScreen = false;
     }
-    if(playerY<0 && startScreen) {
-		startScreen = false;
+    if(playerY<-1 && startScreen) {
+	startScreen = false;
     }
-    if(playerY>tileCount-1 && startScreen) {
-		startScreen = false;
+    if(playerY>tileCount+1 && startScreen) {
+	startScreen = false;
     }
 	// if(started){
 	// 	startScreen=true;
