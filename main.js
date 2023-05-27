@@ -1,4 +1,4 @@
-//variables
+//global variables
 playerX=playerY=10;
 gridSize=tileCount=20;
 appleX=appleY=15;
