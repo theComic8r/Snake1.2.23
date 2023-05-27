@@ -68,7 +68,7 @@ function game() {
 		tail++;
 		appleX=Math.floor(Math.random()*tileCount);
 		appleY=Math.floor(Math.random()*tileCount);
-        score++;
+		score++;
 		if(score === winVal){
 			timesWon++;
 		}
