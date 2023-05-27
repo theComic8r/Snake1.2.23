@@ -31,17 +31,17 @@ window.onload=function() {
 function game() {
     playerX+=xVelocity;
     playerY+=yVelocity;
-    if(playerX<-1 && startScreen){
-	startScreen = false;
+    if(playerX<0 && startScreen){
+		startScreen = false;
     }
-    if(playerX>tileCount+1 && startScreen) {
-	startScreen = false;
+    if(playerX>tileCount && startScreen) {
+		startScreen = false;
     }
-    if(playerY<-1 && startScreen) {
-	startScreen = false;
+    if(playerY<0 && startScreen) {
+		startScreen = false;
     }
-    if(playerY>tileCount+1 && startScreen) {
-	startScreen = false;
+    if(playerY>tileCount && startScreen) {
+		startScreen = false;
     }
 	// if(started){
 	// 	startScreen=true;
@@ -110,24 +110,32 @@ function game() {
 function keyPush(evt) {
 	switch(evt.keyCode) {
 		case 37:
-			xVelocity=-1;
-			yVelocity=0;
-			moving = true;
+			if (xVelocity !== 1) {
+				xVelocity=-1;
+				yVelocity=0;
+				moving = true;
+			}
 			break;
 		case 38:
-			xVelocity=0;
-			yVelocity=-1;
-			moving = true;
+			if (yVelocity !== 1) {
+				xVelocity=0;
+				yVelocity=-1;
+				moving = true;
+			}
 			break;
 		case 39:
-			xVelocity=1;
-			yVelocity=0;
-			moving = true;
+			if (xVelocity !== -1) {
+				xVelocity=1;
+				yVelocity=0;
+				moving = true;
+			}
 			break;
 		case 40:
-			xVelocity=0;
-			yVelocity=1;
-			moving = true;
+			if (yVelocity !== -1) {
+				xVelocity=0;
+				yVelocity=1;
+				moving = true;
+			}
 			break;
         case 32:
 			if(!startScreen){
