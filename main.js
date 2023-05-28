@@ -66,8 +66,19 @@ function game() {
 
 	if(appleX==playerX && appleY==playerY) {
 		tail++;
-		appleX=Math.floor(Math.random()*tileCount);
-		appleY=Math.floor(Math.random()*tileCount);
+		function randomXY(){
+		appleXtemp=Math.floor(Math.random()*tileCount);
+		appleYtemp=Math.floor(Math.random()*tileCount);
+		}
+		randomXY();
+		for(var i=0;i<trail.length;i++){
+			if (appleXtemp == trail[i].x && appleYtemp == trail[i].y){
+				randomXY();
+			}else{
+				appleX=appleXtemp;
+				appleY=appleYtemp;
+			}
+		}
 		score++;
 		if(score === winVal){
 			timesWon++;
