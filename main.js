@@ -85,7 +85,7 @@ function game() {
 		}
 	}
 	ctx.fillStyle="red";
-	ctx.fillRect(appleX*gridSize,appleY*gridSize,gridSize-2,gridSize-2);
+	ctx.fillRect(appleX*gridSize,appleY*gridSize,gridSize-2,gridSize-2);//draw apple
 
     if(!startScreen){
 		console.log("Game Over: "+startScreen);
