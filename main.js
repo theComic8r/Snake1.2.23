@@ -72,7 +72,7 @@ function game() {
 		}
 		randomXY();
 		for(var i=0;i<trail.length;i++){
-			if (appleXtemp == trail[i].x && appleYtemp == trail[i].y){
+			if (appleXtemp === trail[i].x && appleYtemp === trail[i].y){
 				randomXY();
 			}else{
 				appleX=appleXtemp;
